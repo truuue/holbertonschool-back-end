@@ -2,6 +2,7 @@
 """Script that, using this REST API, for a given employee ID,
 returns information about his/her TODO list progress"""
 
+
 import sys
 import requests
 
@@ -37,4 +38,4 @@ if __name__ == "__main__":
     print(f"Employee {employee_name} is done with tasks({
         num_completed_tasks}/{total_tasks}):")
     for title in employee_completed_tasks:
-        print("\t ", title)
+        print(f"\t {title}")
