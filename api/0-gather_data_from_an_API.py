@@ -10,7 +10,8 @@ if __name__ == "__main__":
 
     employee_id = int(sys.argv[1])
 
-    todos_response = requests.get("https://jsonplaceholder.typicode.com/todos")
+    todos_response = requests.get(
+        "https://jsonplaceholder.typicode.com/todos")
     employees_response = requests.get(
         "https://jsonplaceholder.typicode.com/users")
 
@@ -33,7 +34,7 @@ if __name__ == "__main__":
     total_tasks = sum(1 for task in todos if task["userId"] == employee_id)
     num_completed_tasks = len(employee_completed_tasks)
 
-    print("Employee {} is done with tasks({}/{}):"
-          .format(employee_name, num_completed_tasks, total_tasks))
+    print(f"Employee {employee_name} is done with tasks({
+        num_completed_tasks}/{total_tasks}):")
     for title in employee_completed_tasks:
-        print("\t ", title)
+        print(f"\t {title}")
