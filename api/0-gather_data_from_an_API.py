@@ -34,7 +34,7 @@ if __name__ == "__main__":
         [task for task in todos if task["userId"] == employee_id])
     num_completed_tasks = len(employee_completed_tasks)
 
-    print("Employee {} is done with tasks({}/{}):"
-          .format(employee_name, num_completed_tasks, total_tasks))
-    for title in employee_completed_tasks:
-        print("\t ", title)
+    print(f"Employee {employee_name} is done with tasks({
+        len(num_completed_tasks)}/{len(total_tasks)}):")
+    for completed_task in employee_completed_tasks:
+        print("\t ", completed_task)
