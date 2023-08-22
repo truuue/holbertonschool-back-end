@@ -19,6 +19,8 @@ if __name__ == "__main__":
 
     employee_name = None
     employee_completed_tasks = []
+    total_tasks = 0
+    total_completed_tasks = 0
 
     for employee in employees:
         if employee["id"] == employee_id:
@@ -27,13 +29,12 @@ if __name__ == "__main__":
 
     for task in todos:
         if task["userId"] == employee_id:
+            total_tasks += 1
             if task["completed"]:
                 employee_completed_tasks.append(task["title"])
-
-    total_tasks = sum(1 for task in todos if task["userId"] == employee_id)
-    num_completed_tasks = len(employee_completed_tasks)
+                total_completed_tasks += 1
 
     print("Employee {} is done with tasks({}/{}):"
-          .format(employee_name, num_completed_tasks, total_tasks))
+          .format(employee_name, total_completed_tasks, total_tasks))
     for title in employee_completed_tasks:
         print("\t ", title)
