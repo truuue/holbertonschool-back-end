@@ -30,18 +30,12 @@ if __name__ == "__main__":
             employee_username = employee["username"]
             break
 
-    for task in todos:
-        if task["userId"] == employee_id:
-            completed_status = "True" if task["completed"] else "False"
-            employee_completed_tasks.append(
-                (str(employee_id),
-                 employee_username, completed_status, task["title"]))
-
     output_filename = f"{employee_id}.csv"
     with open(output_filename, "w", newline="") as csvfile:
-        csv_writer = csv.writer(csvfile)
-        csv_writer.writerow(
-            ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
-        csv_writer.writerows(employee_completed_tasks)
-
-    print(f"Exported data to {output_filename}")
+        csv_writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+        for task in todos:
+            if task.get("userId") == employee_id:
+                csv_writer.writerow([employee.get("id"),
+                                employee.get("username"),
+                                task.get("completed"),
+                                task.get("title")])
