@@ -37,4 +37,4 @@ if __name__ == "__main__":
             if task.get("userId") == employee_id:
                 csv_writer.writerow(
                     [employee.get("id"), employee.get("username"),
-                    task.get("completed"), task.get("title")])
+                     task.get("completed"), task.get("title")])
