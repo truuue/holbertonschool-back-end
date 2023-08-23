@@ -18,12 +18,13 @@ if __name__ == "__main__":
     employees = employees_response.json()
 
     employee_name = None
-    tasks_list = []
 
     for employee in employees:
         if employee["id"] == employee_id:
-            employee_name = employee["name"]
+            employee_name = employee["username"]
             break
+
+    tasks_list = []
 
     for task in todos:
         if task.get("userId") == employee_id:
