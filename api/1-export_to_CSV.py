@@ -35,6 +35,6 @@ if __name__ == "__main__":
         csv_writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for task in todos:
             if task.get("userId") == employee_id:
-                csv_writer.writerow([employee.get("id"),
-                employee.get("username"), task.get("completed"),
-                task.get("title")])
+                csv_writer.writerow(
+                    [employee.get("id"), employee.get("username"),
+                    task.get("completed"), task.get("title")])
